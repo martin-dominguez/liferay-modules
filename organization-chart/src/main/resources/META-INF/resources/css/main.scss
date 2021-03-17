@@ -1,0 +1,115 @@
+#chart_div {
+	.org-node {
+        border-radius: 5px;  
+        font-family: inherit;
+        cursor: pointer;
+        padding: 6px;
+        transition: box-shadow 0.6s ease-in-out;
+    	
+    	&:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    	}
+    	
+    	.user-data {
+    		font-weight: 600;
+    		font-size: 1em;
+    		
+    		.job-title {
+    			font-weight: normal;
+    			font-style: italic;
+    			text-transform: uppercase;
+    			font-size: .8em;
+			}    		
+    	}
+	}
+	
+	.selected-org-node {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding: 2px !important;
+	}
+	.google-visualization-orgchart-table * {
+        padding: 0px;
+    }
+}
+
+#profile-modal .modal-dialog {
+	.modal-header {
+        min-height: 95px;
+        padding-left: 0px;
+        background-color: var(--primary);
+        
+	    .title-holder {
+	        position: absolute;
+	        top: 40px;
+	        width: 100%;
+	        margin: auto;
+	        
+		    .ds-avatar {
+                .sticker-xl {
+                    width: 100px;
+                    height: 100px;
+                    font-size: 3.5rem;
+                }
+		    }
+	    }
+	    
+	    .close {
+            z-index: 99;
+            right: 10px;
+            position: absolute;
+            top: 5px;
+            
+            svg.lexicon-icon {
+                fill: var(--white);
+            }
+        }
+    }
+    .modal-body {
+        margin-top: 75px;
+        
+        .button a {
+	        padding: 5px 20px;
+	        border-radius: 10px;
+	        letter-spacing: 0.05em;
+	        text-decoration: none;
+	        font-size: 10px;
+	        transition: all 1s;
+	        margin-bottom: 22px;
+	    }
+	    
+	    .ds-attr {
+            text-align: center;
+            
+	    	h6 {
+		        font-weight: 400;
+		        font-size: 12px;
+		        letter-spacing: 0.05em;
+		        margin: 4px 0;
+		        text-transform: uppercase;
+		        color: var(--primary);
+                
+                .ds-text {   
+                    display: block;
+                    color: var(--gray);
+                    font-size: 0.9em;
+                    margin-top: 2px;
+                    padding-bottom: 2px;
+                    margin-bottom: 8px;
+                    border-bottom: solid 1px #eee;
+                    text-transform: none;
+                    text-decoration: none
+                }
+                &:hover {
+                    color: var(--primary);
+                }
+	        }
+	    }
+    }
+}
+
+
+
+

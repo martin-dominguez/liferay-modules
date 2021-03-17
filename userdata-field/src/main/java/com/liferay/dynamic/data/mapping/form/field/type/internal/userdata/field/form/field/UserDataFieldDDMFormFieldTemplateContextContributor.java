@@ -104,6 +104,9 @@ public class UserDataFieldDDMFormFieldTemplateContextContributor implements DDMF
 					_log.error(portalException, portalException);
 				}
 			}
+			else if (methodName.equals("getJobTitle")) {
+				predefinedValue = user.getJobTitle();
+			}
 			else if (methodName.equals("getPolicyNumber")) {
 				predefinedValue = getCustomField("Policy Number", predefinedValue, user);
 			}

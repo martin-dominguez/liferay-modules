@@ -1,0 +1,5 @@
+Bundle-Name: organization-chart
+Bundle-SymbolicName: com.liferay.semodules.organizationChart
+Bundle-Version: 2.1.0
+Export-Package: com.liferay.semodules.organizationChart.constants
+-metatype: *

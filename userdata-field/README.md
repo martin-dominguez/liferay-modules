@@ -36,6 +36,19 @@ This Module has been build using the following software:
 ` $ ./gradlew build `
 The jar file will be in `build/libs/com.liferay.dynamic.data.mapping.form.field.type.internal.userdata.field-{version}.jar`.
 
+These are the relevant configuration properties used to build it locally:
+- **gradle.properties**:
+```
+liferay.workspace.product = dxp-7.3-ga1
+```
+- **settings.gradle**
+```
+dependencies {
+	classpath group: "com.liferay", name: "com.liferay.gradle.plugins.workspace", version: "3.0.11"
+	classpath group: "net.saliman", name: "gradle-properties-plugin", version: "1.4.6"
+}
+```
+
 ## Deploy to Liferay
 ` $ ./gradlew deploy -Pauto.deploy.dir="/path/to/liferay/deploy"`
 

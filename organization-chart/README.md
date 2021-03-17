@@ -32,21 +32,30 @@ This Module has been build using the following software:
 
 # Getting Started
 
-This module has been created Google Chart libraries and JQuer, so both must be supported in your systems.
+This module has been created Google Chart libraries and JQuery, so both must be supported in your systems.
 
 ## Prerequisites
 
 * This module is compatible with **Liferay 7.3**
 * It needs **JQuery** to be enabled in Liferay: * Control Panel > System Settings > Third Party > JQuery > Enable (Checkbox)*
-  
+
 ## Build it
 ` $ ./gradlew build `
 The jar file will be in `build/libs/com.liferay.semodules.organizationChart-{version}.jar`.
 
-## Deploy to Liferay
-` $ ./gradlew deploy -Pauto.deploy.dir="/path/to/liferay/deploy"`
+These are the relevant configuration properties used to build it locally:
+- **gradle.properties**:
+```
+liferay.workspace.product = dxp-7.3-ga1
+```
 
-# Usage
+- **settings.gradle**
+```
+dependencies {
+	classpath group: "com.liferay", name: "com.liferay.gradle.plugins.workspace", version: "3.0.11"
+	classpath group: "net.saliman", name: "gradle-properties-plugin", version: "1.4.6"
+}
+```
 
 1. Create a **Custom Field** to store the user's manager: *Contorl Panel > Custom Fields > User*
 2. You can call it as you prefer, but the default name es "Manager"

@@ -7,7 +7,7 @@
 
 # About The Module
 
-This module provides a custom form field that uses data from logged user to use it as a predefined value, so that the fill will automatically autofillled but the user will can change the data if they want. This field only will fill the data if the user is logged in.
+This module provides a custom form field that uses data from logged user to use it as a predefined value, so that the field will automatically autofillled but the user will can change the data if they want. This field only will fill out the data if the user is logged in.
 
 ![See in page][page-img]
 

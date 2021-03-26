@@ -62,7 +62,10 @@ dependencies {
 
 # TODO List
 
-* Add dynimic configuration of selectable user's attributes, including custom fields.
+* Add dynamic configuration of selectable user's attributes, including custom fields.
+* Add "readonly" configuration
+
+**PRs, issues and comments will be welcomed**
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [contributors-shield]: https://img.shields.io/github/contributors/martin-dominguez/liferay-modules.svg

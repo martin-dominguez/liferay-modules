@@ -8,14 +8,11 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Address;
-import com.liferay.portal.kernel.model.Phone;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
-import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.io.Serializable;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -104,12 +101,6 @@ public class UserDataFieldDDMFormFieldTemplateContextContributor implements DDMF
 					_log.error(portalException, portalException);
 				}
 			}
-			else if (methodName.equals("getPolicyNumber")) {
-				predefinedValue = getCustomField("Policy Number", predefinedValue, user);
-			}
-			else if (methodName.equals("getTaxId")) {
-				predefinedValue = getCustomField("Tax ID", predefinedValue, user);
-			}
 			else if (methodName.equals("getPhones")) {
 				predefinedValue = user.getPhones().size() > 0 ? user.getPhones().get(0).getNumber():"";
 			} else if (methodName.equals("getAddresses")) {
@@ -165,6 +156,7 @@ public class UserDataFieldDDMFormFieldTemplateContextContributor implements DDMF
 		return predefinedValue;
 	}
 
+	/** TODO -  Map Custom fields **
 	private String getCustomField(String fieldName, String predefinedValue, User user) {
 		ExpandoBridge expandoBridge = user.getExpandoBridge();
 		Enumeration<String> attributeNames =
@@ -187,6 +179,7 @@ public class UserDataFieldDDMFormFieldTemplateContextContributor implements DDMF
 
 		return predefinedValue;
 	}
+	-- END **/
 
 	private static final Log _log = LogFactoryUtil.getLog(UserDataFieldDDMFormFieldTemplateContextContributor.class);
 

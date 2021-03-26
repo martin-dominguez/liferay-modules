@@ -52,15 +52,15 @@ import com.liferay.dynamic.data.mapping.form.field.type.DefaultDDMFormFieldTypeS
 public interface UserDataFieldDDMFormFieldTypeSettings extends DefaultDDMFormFieldTypeSettings {
 	@DDMFormField(
 			label = "%user-data-field",
-			predefinedValue = "name",
+			predefinedValue = "full-name",
 			optionLabels = {
 					"%full-name", 
 					"%first-name",
 					"%middle-name",
 					"%last-name",
 					"%date-of-birth",
+					"%job-title",
 					"%email",
-					"%tax-id",
 					"%phone",
 					"%address",
 					"%street1",
@@ -71,7 +71,6 @@ public interface UserDataFieldDDMFormFieldTypeSettings extends DefaultDDMFormFie
 					"%country-name",
 					"%region-id",
 					"%region-code",
-					"%policy-number",
 					"%postal-code"
 			},
 			optionValues = {
@@ -80,8 +79,8 @@ public interface UserDataFieldDDMFormFieldTypeSettings extends DefaultDDMFormFie
 					"getMiddleName",
 					"getLastName",
 					"getDateOfBirth",
+					"getJobTitle",
 					"getEmailAddress",
-					"getTaxId",
 					"getPhones",
 					"getAddresses",
 					"getStreet1",
@@ -92,7 +91,6 @@ public interface UserDataFieldDDMFormFieldTypeSettings extends DefaultDDMFormFie
 					"getCountryName",
 					"getRegionId",
 					"getRegionCode",
-					"getPolicyNumber",
 					"getPostalCode"
 			},
 			required = true,

@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {FieldBase} from 'dynamic-data-mapping-form-field-type/FieldBase/ReactFieldBase.es';
 import {useSyncValue} from 'dynamic-data-mapping-form-field-type/hooks/useSyncValue.es';
 import {ClayInput} from '@clayui/form';
-
 
 /**
  * UserData Input React Component
@@ -33,8 +32,11 @@ const Main = props => {
 		value ? value : predefinedValue
 	);
 	
-	console.log(currentValue);
-
+	useEffect(() => {
+		setCurrentValue(predefinedValue);
+		onChange({target: {value: predefinedValue}});
+	}, []);
+	
 	return <FieldBase
 			label={label}
 			name={name}
@@ -48,6 +50,7 @@ const Main = props => {
 	                onChange(event);
 	            }}
 				readOnly={readOnly}
+				predefinedValue={predefinedValue}
 				value={currentValue}
 			/>
 		</FieldBase>

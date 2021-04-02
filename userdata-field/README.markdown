@@ -17,7 +17,7 @@ The User-data-field admits:
  * Set as required
  * Add Tooltip
  * Validation
- 
+
 ![Configuration][config-img]
 
 ## Built With
@@ -31,7 +31,7 @@ This Module has been build using the following software:
 ## Prerequisites
 
 * This module is compatible with **Liferay 7.3**
-  
+
 ## Build it
 ` $ ./gradlew build `
 The jar file will be in `build/libs/com.liferay.dynamic.data.mapping.form.field.type.internal.userdata.field-{version}.jar`.
@@ -58,7 +58,6 @@ dependencies {
 2. In the *Elements* tab, go to *Customized Elements* and drag the **User's Data Field** and drop it into your form.
 3. Configure, inside the *Basic* tab, the **User's Data Field** selecting the attribute that you want to map into the field.
 4. **Save your form** to see the changes.
-	
 
 # TODO List
 

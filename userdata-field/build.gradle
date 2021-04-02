@@ -3,4 +3,3 @@ dependencies {
 
 	jsCompile group: "com.liferay", name: "com.liferay.dynamic.data.mapping.form.field.type"
 }
-

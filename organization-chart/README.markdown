@@ -7,7 +7,7 @@
 
 # About The Module
 
-This module provides an organization chart based on [Google Organization Chart](https://developers.google.com/chart/interactive/docs/gallery/orgchart). The Look and Feel has been improved using Bootstrap and the interactions with users have been also improved using JQuery. 
+This module provides an organization chart based on [Google Organization Chart](https://developers.google.com/chart/interactive/docs/gallery/orgchart). The Look and Feel has been improved using Bootstrap and the interactions with users have been also improved using JQuery.
 
 ![Overview][overview-img]
 ![Detail][detail-img]
@@ -63,7 +63,6 @@ dependencies {
 4. **Add the "Organization Chart" widget** into a Liferay Page. You'll find it under the *"Intranet"* category
 5. Fill **"Job Title"** in the users profile. If it ins't filled, the **user will not be shown** in the Organization Chart
 6. Fill alsa the **manager's field** (*Manager* by default) with the **screen name** of the manager. If it isn't filled, the user will be **shown in the top of the tree**.
-	
 
 # TODO List
 

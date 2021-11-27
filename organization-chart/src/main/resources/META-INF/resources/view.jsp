@@ -16,65 +16,64 @@
 
 <%@ include file="/init.jsp" %>
 <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
-<script type="text/javascript">
-google.charts.load('current', {packages:["orgchart"]});
-google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {
-	var data = new google.visualization.DataTable();
-	data.addColumn('string', 'Name');
-	data.addColumn('string', 'Manager');
-	data.addColumn('string', 'ToolTip');
-
-	// For each orgchart box, provide the name, manager, and tooltip to show.
-	data.addRows([
-		<c:forEach items="${users}" var="user">
-			<c:choose>
-				<c:when test="${user.status eq 0 && not empty user.firstName && not empty user.jobTitle}">
-					<c:set var="userId">${ user.userId }</c:set>
-					<c:set var="fullName">${ user.firstName } ${ user.lastName }</c:set>
-					<fmt:setTimeZone value="${ user.timeZoneId }" />
-
-					<fmt:formatDate timeStyle="short" type="time" value="<%=new java.util.Date() %>" var="time" />
-
-					<c:set var="following"></c:set>
-					<%
-					User thisUser = (User)pageContext.getAttribute("user");
-
-					boolean following = SocialRelationLocalServiceUtil.hasRelation(themeDisplay.getUserId(), thisUser.getUserId(), SocialRelationConstants.TYPE_UNI_FOLLOWER);
-					int followerUsersCount = SocialRelationLocalServiceUtil.getInverseRelationsCount(thisUser.getUserId(), SocialRelationConstants.TYPE_UNI_FOLLOWER);
-					%>
-
-					[{
-						'v': '${user.screenName}',
-						'f': '<a data-name="${fullname}" data-user="${userId}" data-fullname="${fullName}" data-mail="${user.emailAddress}" data-title="${user.jobTitle}" \
-						data-time="${time}" data-lastc="${user.loginDate}" data-following="<%=following%>" data-followers="<%=followerUsersCount%>" \
-						data-toggle="modal" data-target="#profile-modal"> \
-						<liferay-ui:user-portrait size="xl" userId="${userId}" /></a> \
-						<div class="user-data">${fullName} \
-						<br/><span class="job-title">${user.jobTitle}</span></div>'
-					},
-					'${managers[userId]}',
-					'${fullName} - ${user.jobTitle}'],
-				</c:when>
-			</c:choose>
-		</c:forEach>
-	]);
-
-	// Create the chart.
-	var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
-	// Draw the chart, setting the allowHtml option to true for the tooltips.
-	var options = {
-			'allowHtml':true,
-			'allowCollapse':true,
-			'nodeClass':'org-node',
-			'selectedNodeClass':'selected-org-node'
+<aui:script>
+	google.charts.load('current', {packages:["orgchart"]});
+	google.charts.setOnLoadCallback(drawChart);
+	
+	function drawChart() {
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', 'Name');
+		data.addColumn('string', 'Manager');
+		data.addColumn('string', 'ToolTip');
+	
+		// For each orgchart box, provide the name, manager, and tooltip to show.
+		data.addRows([
+			<c:forEach items="${users}" var="user">
+				<c:choose>
+					<c:when test="${user.status eq 0 && not empty user.firstName && not empty user.jobTitle}">
+						<c:set var="userId">${ user.userId }</c:set>
+						<c:set var="fullName">${ user.firstName } ${ user.lastName }</c:set>
+						<fmt:setTimeZone value="${ user.timeZoneId }" />
+	
+						<fmt:formatDate timeStyle="short" type="time" value="<%=new java.util.Date() %>" var="time" />
+	
+						<c:set var="following"></c:set>
+						<%
+						User thisUser = (User)pageContext.getAttribute("user");
+	
+						boolean following = SocialRelationLocalServiceUtil.hasRelation(themeDisplay.getUserId(), thisUser.getUserId(), SocialRelationConstants.TYPE_UNI_FOLLOWER);
+						int followerUsersCount = SocialRelationLocalServiceUtil.getInverseRelationsCount(thisUser.getUserId(), SocialRelationConstants.TYPE_UNI_FOLLOWER);
+						%>
+	
+						[{
+							'v': '${user.screenName}',
+							'f': '<a data-name="${fullname}" data-user="${userId}" data-fullname="${fullName}" data-mail="${user.emailAddress}" data-title="${user.jobTitle}" \
+							data-time="${time}" data-lastc="${user.loginDate}" data-following="<%=following%>" data-followers="<%=followerUsersCount%>" \
+							data-toggle="modal" data-target="#profile-modal"> \
+							<liferay-ui:user-portrait size="xl" userId="${userId}" /></a> \
+							<div class="user-data">${fullName} \
+							<br/><span class="job-title">${user.jobTitle}</span></div>'
+						},
+						'${managers[userId]}',
+						'${fullName} - ${user.jobTitle}'],
+					</c:when>
+				</c:choose>
+			</c:forEach>
+		]);
+	
+		// Create the chart.
+		var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+		// Draw the chart, setting the allowHtml option to true for the tooltips.
+		var options = {
+				'allowHtml':true,
+				'allowCollapse':true,
+				'nodeClass':'org-node',
+				'selectedNodeClass':'selected-org-node'
+		}
+		chart.draw(data, options);
 	}
-	chart.draw(data, options);
-}
-</script>
+</aui:script>
 
-<div>${data}</div>
 <div id="chart_div"></div>
 <div
 	aria-hidden="true"
@@ -148,7 +147,7 @@ function drawChart() {
 	</div>
 </div>
 
-<script>
+<aui:script>
 	$('#profile-modal').on('show.bs.modal', function (event) {
 		var name = $(event.relatedTarget).data('fullname');
 		var mail = $(event.relatedTarget).data('mail');
@@ -205,4 +204,4 @@ function drawChart() {
 	$('#profile-modal').on('hidden.bs.modal', function () {
 		$('.selected-org-node').removeClass('selected-org-node');
 	});
-</script>
+</aui:script>
